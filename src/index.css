@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root,[data-theme="dark"]{
+  --bg:#07070f;--bg2:#0f0f1a;--bg3:#161625;
+  --surface:#1c1c2e;--surface2:#22223a;
+  --accent:#7c5cfc;--accent2:#00d4aa;--accent3:#ff5f7e;--gold:#f5c842;
+  --text:#f0f0fa;--text2:#c4c4dc;--muted:#6e6e8e;
+  --border:rgba(124,92,252,0.2);--card-bg:rgba(28,28,46,0.9);
+  --nav-bg:rgba(7,7,15,0.92);
+  --shadow-card:0 20px 60px rgba(124,92,252,0.14);
+  --shadow-btn:0 10px 32px rgba(124,92,252,0.42);
+}
+[data-theme="light"]{
+  --bg:#f4f3ff;--bg2:#ebebfc;--bg3:#e2e0ff;
+  --surface:#fff;--surface2:#f0effe;
+  --accent:#5b3ff5;--accent2:#00a882;--accent3:#e03060;--gold:#c49208;
+  --text:#18182c;--text2:#38385a;--muted:#7070a0;
+  --border:rgba(91,63,245,0.18);--card-bg:#ffffff;
+  --nav-bg:rgba(244,243,255,0.94);
+  --shadow-card:0 20px 60px rgba(91,63,245,0.1);
+  --shadow-btn:0 10px 32px rgba(91,63,245,0.35);
+}
+
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;transition:background .35s,color .35s}
+::selection{background:rgba(124,92,252,.28)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+.font-serif{font-family:'Playfair Display',serif}
+.font-mono{font-family:'JetBrains Mono',monospace}
+.text-accent{color:var(--accent)!important}
+.text-accent2{color:var(--accent2)!important}
+.text-muted-c{color:var(--muted)!important}
+.text-body-c{color:var(--text)!important}
+.text-body2-c{color:var(--text2)!important}
+
+.bg-s1{background:var(--bg);transition:background .35s}
+.bg-s2{background:var(--bg2);transition:background .35s}
+
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
+
+/* CARDS */
+.themed-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;transition:border-color .3s,transform .35s cubic-bezier(.22,.68,0,1.2),box-shadow .35s,background .35s}
+.themed-card:hover{border-color:var(--accent);transform:translateY(-8px) scale(1.015);box-shadow:var(--shadow-card)}
+
+.project-card-wrap .themed-card{overflow:hidden;position:relative}
+.project-card-wrap .themed-card::before{content:'';display:block;height:3px;background:var(--card-accent,var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.project-card-wrap .themed-card:hover::before{transform:scaleX(1)}
+
+/* TAGS */
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.68rem;padding:3px 10px;border-radius:6px;letter-spacing:.04em;transition:background .2s,transform .2s}
+.tag:hover{transform:scale(1.08)}
+.tag-violet{background:rgba(124,92,252,.13);color:var(--accent);border:1px solid rgba(124,92,252,.28)}
+.tag-teal{background:rgba(0,212,170,.11);color:var(--accent2);border:1px solid rgba(0,212,170,.25)}
+.tag-coral{background:rgba(255,95,126,.11);color:var(--accent3);border:1px solid rgba(255,95,126,.25)}
+.tag-gold{background:rgba(245,200,66,.11);color:var(--gold);border:1px solid rgba(245,200,66,.25)}
+.tag-soft{background:rgba(124,92,252,.07);color:var(--muted);border:1px solid var(--border)}
+
+/* BUTTONS */
+.btn-accent{background:var(--accent);color:#fff!important;border:none;font-weight:600;letter-spacing:.04em;position:relative;overflow:hidden;transition:background .25s,transform .25s,box-shadow .25s}
+.btn-accent:hover{background:color-mix(in srgb,var(--accent) 80%,#fff);color:#fff!important;transform:translateY(-3px);box-shadow:var(--shadow-btn)}
+.btn-ghost-accent{background:transparent;border:1px solid rgba(124,92,252,.35);color:var(--text)!important;font-weight:500;transition:all .25s}
+.btn-ghost-accent:hover{border-color:var(--accent);color:var(--accent)!important;background:rgba(124,92,252,.08);transform:translateY(-3px)}
+
+/* THEME SWITCH */
+.theme-switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.ts-track{width:48px;height:26px;border-radius:13px;background:var(--surface2);border:1px solid var(--border);position:relative;transition:background .3s,border-color .3s;flex-shrink:0}
+.ts-track.on{background:var(--accent);border-color:var(--accent)}
+.ts-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.ts-track.on .ts-thumb{transform:translateX(22px)}
+
+/* NAV LINKS */
+.nav-link-custom{position:relative;color:var(--muted)!important;font-family:'JetBrains Mono',monospace;font-size:.76rem!important;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding-bottom:2px!important;transition:color .2s!important}
+.nav-link-custom::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-link-custom:hover{color:var(--text)!important}
+.nav-link-custom:hover::after{transform:scaleX(1)}
+
+/* CONTACT LINKS */
+.contact-link-card{display:flex;align-items:center;gap:12px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:var(--text);transition:border-color .28s,transform .28s cubic-bezier(.22,.68,0,1.2),box-shadow .28s,background .28s}
+.contact-link-card:hover{border-color:var(--accent);transform:translateX(6px) translateY(-3px);box-shadow:var(--shadow-card);color:var(--text);background:color-mix(in srgb,var(--card-bg) 85%,var(--accent))}
+
+/* CERT CARDS */
+.cert-card-custom{display:flex;align-items:flex-start;gap:14px;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--card-accent,var(--accent));border-radius:12px;padding:1.2rem 1.4rem;transition:transform .3s cubic-bezier(.22,.68,0,1.2),box-shadow .3s,background .3s}
+.cert-card-custom:hover{transform:translateX(7px);box-shadow:var(--shadow-card)}
+
+/* EDU */
+.edu-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);transition:background .3s,box-shadow .3s,transform .3s}
+.edu-item:hover .edu-dot{background:var(--accent);box-shadow:0 0 14px rgba(124,92,252,.55);transform:scale(1.25)}
+.edu-item:hover .themed-card{border-color:var(--accent);transform:translateX(6px);box-shadow:var(--shadow-card)}
+
+/* SKILL GLOW */
+.skill-card-hover{position:relative;overflow:hidden}
+.skill-card-hover::after{content:'';position:absolute;inset:0;border-radius:16px;background:radial-gradient(circle at 50% 50%,rgba(124,92,252,.12),transparent 65%);opacity:0;transition:opacity .35s;pointer-events:none}
+.skill-card-hover:hover::after{opacity:1}
+
+/* AVATAR */
+.avatar-ring{transition:box-shadow .35s}
+.avatar-ring:hover{box-shadow:0 0 0 6px rgba(124,92,252,.18),0 0 0 12px rgba(124,92,252,.07)}
+
+/* FADE UP */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+@keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+/* ── Resume Download Button ── */
+.btn-download-resume {
+  background: transparent;
+  border: 1px solid var(--accent2);
+  color: var(--accent2) !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-download-resume::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent2);
+  transform: translateY(100%);
+  transition: transform 0.28s cubic-bezier(.22,.68,0,1.2);
+  z-index: 0;
+}
+.btn-download-resume:hover::before {
+  transform: translateY(0);
+}
+.btn-download-resume:hover {
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,212,170,0.35);
+}
+.btn-download-resume svg,
+.btn-download-resume span {
+  position: relative;
+  z-index: 1;
+}
