@@ -4,11 +4,11 @@ const GROUPS = [
   { icon:'☕', title:'Backend',      tagClass:'tag-violet', iconBg:'rgba(124,92,252,0.14)',
     skills:['Core Java','Java 8','Advanced Java','Spring Boot','Spring MVC','Hibernate','REST APIs'] },
   { icon:'⚛',  title:'Frontend',    tagClass:'tag-teal',   iconBg:'rgba(0,212,170,0.11)',
-    skills:['React.js','JavaScript','HTML5','CSS3','Bootstrap'] },
+    skills:['React.js','JavaScript','HTML5','CSS3','Bootstrap','MUI'] },
   { icon:'🗄',  title:'Databases',   tagClass:'tag-gold',   iconBg:'rgba(245,200,66,0.11)',
-    skills:['MySQL','Oracle','MongoDB'] },
+    skills:['MySQL','Oracle','MongoDB','TiDB'] },
   { icon:'🔧', title:'Tools & DevOps',tagClass:'tag-coral', iconBg:'rgba(255,95,126,0.11)',
-    skills:['Git','Maven','Gradle','Postman','JUnit5','Eclipse','STS','VS Code'] },
+    skills:['Git','Maven','Gradle','Postman','Swagger API','JUnit5','Eclipse','STS','VS Code'] },
 ]
 
 export default function Skills() {
