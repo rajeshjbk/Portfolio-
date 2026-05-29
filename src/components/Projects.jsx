@@ -83,6 +83,35 @@ const PROJECTS = [
       "Java",
     ],
   },
+  {
+    num: "03",
+    color: "#f5c842",
+    category: "Full Stack",
+    tagClass: "tag-gold",
+    title: "Learning Management System",
+    link: "https://github.com/rajeshjbk/LearningManagementSystem-Backend.git",
+    desc: "A comprehensive Learning Management System (LMS) designed for online course management, student enrollment, progress tracking, and secure role-based access.",
+    features: [
+      "Role-based authentication (Admin/Instructor/Student)",
+      "Course & category management",
+      "Student enrollment system",
+      "Video lecture & content management",
+      "Progress tracking dashboard",
+      "JWT-based secure authentication",
+      "Instructor course ownership",
+      "Responsive UI for all devices",
+    ],
+    stack: [
+      "React.js",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "MySQL",
+      "REST API",
+      "Bootstrap",
+      "Java",
+    ],
+  },
 ];
 
 function ProjectCard({ p, i, visible }) {
